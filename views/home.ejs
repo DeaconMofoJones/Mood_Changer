@@ -17,12 +17,15 @@
     </div>
     <div id="moods-wrap" class="container">
       <div class="container">
-        <button type="button" class="btn mood-box anxious"><span class="mood-txt">Anxious</span></button>
-        <button type="button" class="btn mood-box"><span class="mood-txt">Sad</span></button>
+        <a href="/mood/anxious"><button type="button" class="btn mood-box anxious"><span
+              class="mood-txt">Anxious</span></button></a>
+        <a href="/mood/sad"><button type="button" class="btn mood-box"><span class="mood-txt">Sad</span></button></a>
       </div>
       <div class="container">
-        <button type="button" class="btn mood-box"><span class="mood-txt">Angry</span></button>
-        <button type="button" class="btn mood-box"><span class="mood-txt">Lonely</span></button>
+        <a href="/mood/angry"><button type="button" class="btn mood-box"><span
+              class="mood-txt">Angry</span></button></a>
+        <a href="/mood/lonely"><button type="button" class="btn mood-box"><span
+              class="mood-txt">Lonely</span></button></a>
       </div>
     </div>
     <div class="container bottom-btn">
@@ -30,6 +33,6 @@
       <button type="button" class="btn talk-btn btn-lg btn-block">Talk to someone</button>
     </div>
   </div>
-</main>
+  </main>
 
-<%- include('partials/footer.ejs') %>
+  <%- include('partials/footer.ejs') %>
