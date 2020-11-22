@@ -9,6 +9,11 @@ if (process.env.NODE_ENV !== "production") {
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+const journalsRouter = require('./routes/journals.js');
+var Journal = require('./models/journal');
+
 
 //Connect to database
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
@@ -23,6 +28,10 @@ app.set("view-engine", "ejs");
 
 //Tells our app to look inside the public directory for files, like our images.
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+app.use('/journals', journalsRouter);   // Make sure this is on the bottom of app.use section
 
 //ROUTES
 
@@ -53,9 +62,6 @@ app.get('/healing/:healing_method/:userMood', (req, res) => {
         case "music":
             res.render('healing/music.ejs', { mood: mood, healing_method: healing_method });
             break;
-        case "journal":
-            res.render('journal/index.ejs', { mood: mood, healing_method: healing_method });
-            break;
         case "video":
             res.render('healing/video.ejs', { mood: mood, healing_method: healing_method });
             break;
@@ -74,9 +80,7 @@ app.get('/healing/:healing_method/:userMood', (req, res) => {
     }
 })
 
-app.get('/journal/new', (req, res) => {
-    res.render('journal/new.ejs');
-})
+
 
 //Server starts here with a port of 3000
 app.listen(3000);
