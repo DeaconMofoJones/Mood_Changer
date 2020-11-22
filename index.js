@@ -74,6 +74,9 @@ app.get('/healing/:healing_method/:userMood', (req, res) => {
         case "funny":
             res.render('healing/funny.ejs', { mood: mood, healing_method: healing_method });
             break;
+        case "quote":
+            res.render('healing/quote.ejs', { mood: mood, healing_method: healing_method });
+            break;
         default:
             console.log("unrecognized healing method: " + healing_method);
             res.render('home.ejs');
