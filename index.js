@@ -27,7 +27,7 @@ app.get('/about', (req, res) => {
 
 app.get('/mood/:userMood', (req, res) => {
     var mood = req.params.userMood;
-    res.render("healing.ejs", { mood: mood });
+    res.render("healing/index.ejs", { mood: mood });
 })
 
 app.get('/healing/:healing_method/:userMood', (req, res) => {
