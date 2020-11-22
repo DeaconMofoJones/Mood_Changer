@@ -1,7 +1,7 @@
 // If in development,
 if (process.env.NODE_ENV !== "production") {
     //require the development npm package, dotenv.
-    //and load all environment variables stored inside, which includes our database connection url.
+    //and load all environment variables stored inside our .env file, which includes our database connection url.
     //the .env file is ignored by github, so it's contents are kept secret from the public.
     require("dotenv").config();
 }
