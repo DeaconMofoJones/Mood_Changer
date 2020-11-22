@@ -35,22 +35,22 @@ app.get('/healing/:healing_method/:userMood', (req, res) => {
     var healing_method = req.params.healing_method;
     switch (healing_method) {
         case "music":
-            res.render('music.ejs', { mood: mood });
+            res.render('healing/music.ejs', { mood: mood, healing_method: healing_method });
             break;
         case "journal":
-            res.render('journal.ejs');
+            res.render('journal/index.ejs', { mood: mood, healing_method: healing_method });
             break;
         case "video":
-            res.render('video.ejs', { mood: mood });
+            res.render('healing/video.ejs', { mood: mood, healing_method: healing_method });
             break;
         case "help":
-            res.render('help.ejs', { mood: mood });
+            res.render('healing/help.ejs', { mood: mood, healing_method: healing_method });
             break;
         case "workout":
-            res.render('workout.ejs');
+            res.render('healing/workout.ejs', { mood: mood, healing_method: healing_method });
             break;
         case "funny":
-            res.render('funny.ejs');
+            res.render('healing/funny.ejs', { mood: mood, healing_method: healing_method });
             break;
         default:
             console.log("unrecognized healing method: " + healing_method);
@@ -59,7 +59,7 @@ app.get('/healing/:healing_method/:userMood', (req, res) => {
 })
 
 app.get('/journal/new', (req, res) => {
-    res.render('new_journal.ejs');
+    res.render('journal/new.ejs');
 })
 
 //Server starts here with a port of 3000
