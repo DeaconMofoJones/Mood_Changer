@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const journalSchema = new mongoose.Schema({
     createdAt: {
-        type: String,
-        required: true
+        type: Date,
+        default: Date.now
     },
     heading: {
         type: String,
