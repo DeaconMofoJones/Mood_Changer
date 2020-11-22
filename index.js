@@ -1,5 +1,21 @@
+// If in development,
+if (process.env.NODE_ENV !== "production") {
+    //require the development npm package, dotenv.
+    //and load all environment variables stored inside, which includes our database connection url.
+    //the .env file is ignored by github, so it's contents are kept secret from the public.
+    require("dotenv").config();
+}
+
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+
+//Connect to database
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
+    if (err) {
+        console.log("mongoose error: ", err);
+    }
+});
 
 //Allows us to render ejs files instead of html files.
 //(ejs files are pretty much the same as html files. The only difference is that they are inclusive of javascript.)
