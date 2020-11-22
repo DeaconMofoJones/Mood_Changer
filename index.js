@@ -29,16 +29,16 @@ app.get('/mood/:userMood', (req, res) => {
     var mood = req.params.userMood;
     switch (mood) {
         case "happy":
-            res.render('happy.ejs');
+            res.render('happy.ejs', { mood: mood });
             break;
         case "soso":
-            res.render('soso.ejs');
+            res.render('soso.ejs', { mood: mood });
             break;
         case "sad":
-            res.render('sad.ejs');
+            res.render('sad.ejs', { mood: mood });
             break;
         case "angry":
-            res.render('angry.ejs');
+            res.render('angry.ejs', { mood: mood });
             break;
         default:
             console.log("error: mood not recognized (" + userMood + ")");
